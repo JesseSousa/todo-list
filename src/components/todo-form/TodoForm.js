@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./TodoForm.scss";
 
 class TodoForm extends Component {
   constructor(props) {
@@ -21,15 +22,18 @@ class TodoForm extends Component {
 
   render() {
     return (
-      <form>
+      <form className="TodoForm">
         <input
           value={this.state.todoInput}
           type="text"
           placeholder="New Todo"
           name="todoInput"
           onChange={this.handleChange}
+          autoComplete="off"
         />
-        <button onClick={this.handleSubmit}>Add</button>
+        <button onClick={this.handleSubmit}>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
       </form>
     );
   }

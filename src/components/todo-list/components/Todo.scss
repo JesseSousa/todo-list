@@ -1,0 +1,58 @@
+.Todo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-bottom: 1px solid var(--secondary-color-dark);
+  position: relative;
+  cursor: pointer;
+
+  label {
+    display: inline-block;
+    font-weight: 300;
+    padding: 0.5rem;
+  }
+
+  span {
+    cursor: pointer;
+    margin-left: 1rem;
+    color: var(--text-color);
+    transition: all 0.5s;
+  }
+
+  input[type='checkbox'] + i {
+    cursor: pointer;
+    background-color: var(--secondary-color-light);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    z-index: 5;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  input[type='checkbox']:checked + i::after {
+    background-color: var(--secondary-color-lighter);
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 8px;
+    left: 4px;
+    position: absolute;
+    top: 4px;
+    width: 8px;
+    z-index: 2;
+  }
+
+  input[type='checkbox']:checked ~ span {
+    text-decoration: line-through;
+    color: var(--secondary-color-light);
+  }
+
+  input[type='checkbox'] {
+    opacity: 0;
+  }
+}

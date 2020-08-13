@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TodoForm from "../todo-form/TodoForm";
 import Todo from "./components/Todo";
 import { v4 as uuidv4 } from "uuid";
+import "./TodoList.scss";
 
 class TodoList extends Component {
   constructor(props) {
@@ -10,6 +11,14 @@ class TodoList extends Component {
     this.state = {
       todos: [],
     };
+  }
+
+  componentDidMount() {
+    this.setState({ todos: JSON.parse(localStorage.getItem("todos")) || [] });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("todos", JSON.stringify(this.state.todos));
   }
 
   handleSubmit = (val) => {
@@ -21,12 +30,25 @@ class TodoList extends Component {
     });
   };
 
+  handleCheck = (id) => {
+    this.setState((st) => ({
+      todos: st.todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      ),
+    }));
+  };
+
   render() {
     return (
       <div className="TodoList">
-        {this.state.todos.map((todo) => (
-          <Todo todo={todo} />
-        ))}
+        <div className="TodoList-title">
+          <h1>To Do List</h1>
+        </div>
+        <ul>
+          {this.state.todos.map((todo) => (
+            <Todo todo={todo} key={todo.id} handleCheck={this.handleCheck} />
+          ))}
+        </ul>
         <TodoForm handleSubmit={this.handleSubmit} />
       </div>
     );
