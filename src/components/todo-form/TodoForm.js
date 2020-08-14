@@ -12,7 +12,9 @@ class TodoForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleSubmit(this.state.todoInput);
+    if (this.state.todoInput) {
+      this.props.handleSubmit(this.state.todoInput);
+    }
     this.setState({ todoInput: "" });
   };
 
