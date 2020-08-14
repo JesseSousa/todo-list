@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import "./Todo.scss";
 
 class Todo extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isHover: false,
+    };
+  }
+
   handleClick = () => {
     this.props.handleCheck(this.props.todo.id);
   };
@@ -10,9 +18,18 @@ class Todo extends Component {
     this.props.handleRemove(this.props.todo.id);
   };
 
+  handleHover = () => {
+    this.setState((st) => ({ isHover: !st.isHover }));
+  };
+
   render() {
     return (
-      <li className="Todo" onClick={this.handleClick}>
+      <li
+        className="Todo"
+        onClick={this.handleClick}
+        onMouseEnter={this.handleHover}
+        onMouseLeave={this.handleHover}
+      >
         <label>
           <input
             checked={this.props.todo.completed}
@@ -21,7 +38,7 @@ class Todo extends Component {
           />
           <i></i>
           <span>{this.props.todo.task}</span>
-          <button onClick={this.handleRemove}>–</button>
+          {this.state.isHover && <button onClick={this.handleRemove}>–</button>}
         </label>
       </li>
     );

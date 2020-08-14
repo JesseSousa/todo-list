@@ -7,6 +7,11 @@
   border-bottom: 1px solid var(--secondary-color-dark);
   position: relative;
   cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #2a3353;
+  }
 
   label {
     display: inline-block;
