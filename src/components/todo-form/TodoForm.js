@@ -28,7 +28,7 @@ class TodoForm extends Component {
         <input
           value={this.state.todoInput}
           type="text"
-          placeholder="New Todo"
+          placeholder="Write a new item"
           name="todoInput"
           onChange={this.handleChange}
           autoComplete="off"

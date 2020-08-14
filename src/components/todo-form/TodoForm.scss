@@ -4,9 +4,10 @@
   input[type='text'] {
     width: 100%;
     height: 100%;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.8rem;
     border: none;
     background-color: var(--secondary-color-dark);
+    box-shadow: inset 0 0 8px 0 var(--secondary-color-darker);
     outline: none;
     color: #fff;
     border-bottom-left-radius: var(--border-radius);
