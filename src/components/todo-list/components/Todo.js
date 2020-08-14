@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "./Todo.scss";
+import { isTouchDevice } from "../../../helpers.js";
 
 class Todo extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isHover: false,
+      isHover: isTouchDevice(),
     };
   }
 
@@ -19,6 +20,9 @@ class Todo extends Component {
   };
 
   handleHover = () => {
+    if (isTouchDevice()) {
+      return;
+    }
     this.setState((st) => ({ isHover: !st.isHover }));
   };
 
