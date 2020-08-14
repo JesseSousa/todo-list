@@ -19,11 +19,12 @@ class Todo extends Component {
     this.props.handleRemove(this.props.todo.id);
   };
 
-  handleHover = () => {
-    if (isTouchDevice()) {
-      return;
-    }
-    this.setState((st) => ({ isHover: !st.isHover }));
+  handleMouseEnter = () => {
+    this.setState({ isHover: true });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({ isHover: false });
   };
 
   render() {
@@ -31,8 +32,8 @@ class Todo extends Component {
       <li
         className="Todo"
         onClick={this.handleClick}
-        onMouseEnter={this.handleHover}
-        onMouseLeave={this.handleHover}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
       >
         <label>
           <input
