@@ -34,7 +34,7 @@ class TodoForm extends Component {
           autoComplete="off"
         />
         <button onClick={this.handleSubmit}>
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          <i className="fa fa-plus-circle" aria-hidden="true"></i>
         </button>
       </form>
     );

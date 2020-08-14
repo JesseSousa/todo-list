@@ -13,10 +13,10 @@ class Todo extends Component {
           <input
             checked={this.props.todo.completed}
             type="checkbox"
-            onClick={this.handleClick}
+            onChange={this.handleClick}
           />
           <i></i>
-          <span onClick={this.handleClick}>{this.props.todo.task}</span>
+          <span>{this.props.todo.task}</span>
           {/* <button>–</button> */}
         </label>
       </li>
