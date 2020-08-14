@@ -6,6 +6,10 @@ class Todo extends Component {
     this.props.handleCheck(this.props.todo.id);
   };
 
+  handleRemove = () => {
+    this.props.handleRemove(this.props.todo.id);
+  };
+
   render() {
     return (
       <li className="Todo" onClick={this.handleClick}>
@@ -17,7 +21,7 @@ class Todo extends Component {
           />
           <i></i>
           <span>{this.props.todo.task}</span>
-          {/* <button>–</button> */}
+          <button onClick={this.handleRemove}>–</button>
         </label>
       </li>
     );

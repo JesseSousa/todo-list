@@ -38,6 +38,12 @@ class TodoList extends Component {
     }));
   };
 
+  handleRemove = (id) => {
+    this.setState({
+      todos: this.state.todos.filter((todo) => (todo.id !== id ? todo : null)),
+    });
+  };
+
   render() {
     return (
       <div className="TodoList">
@@ -46,7 +52,12 @@ class TodoList extends Component {
         </div>
         <ul>
           {this.state.todos.map((todo) => (
-            <Todo todo={todo} key={todo.id} handleCheck={this.handleCheck} />
+            <Todo
+              todo={todo}
+              key={todo.id}
+              handleCheck={this.handleCheck}
+              handleRemove={this.handleRemove}
+            />
           ))}
         </ul>
         <TodoForm handleSubmit={this.handleSubmit} />
