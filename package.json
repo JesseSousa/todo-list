@@ -19,7 +19,7 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://jessesousa.github.io/todolist",
+  "homepage": "https://jessesousa.github.io/todo-list",
   "browserslist": {
     "production": [
       ">0.2%",
