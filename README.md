@@ -2,6 +2,8 @@
 
 A To Do List made with Reactjs. The design was inspired by this [CodePen](https://codepen.io/yesilfasulye/pen/eJIuF).
 
+![To Do List Screenshot](https://i.imgur.com/ODgSstb.png)
+
 ## Setting up for development
 
 ### `yarn start`
