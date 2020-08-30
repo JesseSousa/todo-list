@@ -41,6 +41,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## TODO
 
-- [ ] Implement logic for removing tasks 1 day after completion
+- [ ] Implement logic for removing tasks 12 hours after completion
 - [ ] Menu button that allows user to create multiple lists
 - [ ] Add transition to task when being removed
