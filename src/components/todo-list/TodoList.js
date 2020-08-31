@@ -17,9 +17,35 @@ class TodoList extends Component {
   }
 
   componentDidMount() {
-    this.setState({ todos: JSON.parse(localStorage.getItem("todos")) || [] });
-    this.updateTodos(this._updateTime);
+    this.setState({ todos: this.getTodosFromLocalStorage() }, () =>
+      this.updateTodos(this._updateTime)
+    );
   }
+
+  getTodosFromLocalStorage = () => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+
+    if (!todos) {
+      return [];
+    }
+
+    const newTodos = [];
+
+    for (let todo of todos) {
+      let newTodo = {};
+
+      newTodo = { ...todo };
+
+      if (todo.dateOfCompletion) {
+        newTodo.dateOfCompletion = new Date(todo.dateOfCompletion);
+      }
+
+      newTodos.push(newTodo);
+    }
+
+    console.log(newTodos);
+    return newTodos;
+  };
 
   componentDidUpdate() {
     localStorage.setItem("todos", JSON.stringify(this.state.todos));
@@ -36,6 +62,7 @@ class TodoList extends Component {
     let includeOutdatedTodos = false;
 
     for (let todo of this.state.todos) {
+      console.log(todo);
       if (
         todo.completed &&
         new Date().getTime() - todo.dateOfCompletion.getTime() > limitTime
