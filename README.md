@@ -2,6 +2,8 @@
 
 A To Do List made with Reactjs. The design was inspired by this [CodePen](https://codepen.io/yesilfasulye/pen/eJIuF).
 
+All the todos gets saved on localStorage, and are removed automatically 12 hours after completion. The App can be accessed by this [link](https://jessesousa.github.io/todo-list/).
+
 ![To Do List Screenshot](https://i.imgur.com/ODgSstb.png)
 
 ## Setting up for development
@@ -41,6 +43,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## TODO
 
-- [ ] Implement logic for removing tasks 12 hours after completion
+- [x] ~~_Implement logic for removing tasks 12 hours after completion_~~ [2020-08-31]
 - [ ] Menu button that allows user to create multiple lists
 - [ ] Add transition to task when being removed
