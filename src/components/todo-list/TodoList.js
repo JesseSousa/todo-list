@@ -122,7 +122,7 @@ class TodoList extends Component {
         <div className="TodoList-title">
           <h1>To Do List</h1>
         </div>
-        <ul>
+        <div>
           {this.state.todos.map((todo) => (
             <Todo
               todo={todo}
@@ -131,7 +131,7 @@ class TodoList extends Component {
               handleRemove={this.handleRemove}
             />
           ))}
-        </ul>
+        </div>
         <TodoForm handleSubmit={this.handleSubmit} />
       </div>
     );

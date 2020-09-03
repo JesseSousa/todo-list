@@ -45,4 +45,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - [x] ~~_Implement logic for removing tasks 12 hours after completion_~~ [2020-08-31]
 - [ ] Menu button that allows user to create multiple lists
-- [ ] Add transition to task when being removed
+- [x] ~~_Add transition to task when being removed_~~ [2020-09-03]

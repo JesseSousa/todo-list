@@ -8,6 +8,7 @@ class Todo extends Component {
 
     this.state = {
       isHover: isTouchDevice(),
+      isShowing: true,
     };
   }
 
@@ -16,7 +17,10 @@ class Todo extends Component {
   };
 
   handleRemove = () => {
-    this.props.handleRemove(this.props.todo.id);
+    this.setState({ isShowing: false });
+    setTimeout(() => {
+      this.props.handleRemove(this.props.todo.id);
+    }, 550);
   };
 
   handleMouseEnter = () => {
@@ -28,9 +32,11 @@ class Todo extends Component {
   };
 
   render() {
+    const { isShowing } = this.state;
+
     return (
-      <li
-        className="Todo"
+      <div
+        className={`Todo ${isShowing ? "" : "hide"}`}
         onClick={this.handleClick}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
@@ -45,7 +51,7 @@ class Todo extends Component {
           <span>{this.props.todo.task}</span>
           {this.state.isHover && <button onClick={this.handleRemove}>–</button>}
         </label>
-      </li>
+      </div>
     );
   }
 }
