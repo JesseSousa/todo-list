@@ -62,7 +62,6 @@ class TodoList extends Component {
     let includeOutdatedTodos = false;
 
     for (let todo of this.state.todos) {
-      console.log(todo);
       if (
         todo.completed &&
         new Date().getTime() - todo.dateOfCompletion.getTime() > limitTime
