@@ -36,14 +36,14 @@ class TodoList extends Component {
 
       newTodo = { ...todo };
 
-      if (todo.dateOfCompletion) {
-        newTodo.dateOfCompletion = new Date(todo.dateOfCompletion);
+      if (!todo.dateOfCompletion) {
+        localStorage.clear();
       }
 
+      newTodo.dateOfCompletion = new Date(todo.dateOfCompletion);
       newTodos.push(newTodo);
     }
 
-    console.log(newTodos);
     return newTodos;
   };
 
